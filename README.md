@@ -4,7 +4,11 @@ In the project directory, you can run:
 
 ### `npm install`
 
-And
+Add .env.local with:
+
+### `REACT_APP_API_BASE_URL=https://wizard-world-api.herokuapp.com`
+
+And run:
 
 ### `npm start`
 

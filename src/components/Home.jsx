@@ -1,36 +1,48 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import HouseCard from './houses/HouseCard';
-
-const baseURL = 'https://wizard-world-api.herokuapp.com';
+import { houses } from '../fakeData/res';
+import Loader from './Loader';
+import HousesTable from './table/HousesTable';
 
 const Home = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`${baseURL}/Houses`)
-      .then((res) => setData(res.data))
-      .catch((error) => {
-        console.log(`Error: ${error}`);
-        setError(error);
-      });
+    setData(houses);
+    // axios
+    //   .get(`${process.env.REACT_APP_API_BASE_URL}/Houses`)
+    //   .then((res) => {
+    //     const sortedData = res.data.sort((a, b) =>
+    //       a.name.localeCompare(b.name)
+    //     );
+    //     setData(sortedData);
+    //   })
+    //   .catch((error) => {
+    //     console.log(`Error: ${error}`);
+    //     setError(error);
+    //   });
   }, []);
 
   if (error) {
-    return <div>{`Error: ${error}`}</div>;
+    return (
+      <div className='flex justify-center items-center py-64 text-red-500'>{`Error: ${error}`}</div>
+    );
   }
 
   if (!data && !error) {
-    return <div>Loading</div>;
+    return <Loader />;
   }
 
   return (
-    <main className='container grid'>
-      {data.map((item) => (
-        <HouseCard key={item.id} data={item} />
-      ))}
+    <main className='container'>
+      {/* <div className='mx-auto grid grid-cols-2 md:grid-cols-4'>
+        {data.map((item) => (
+          <HouseCard key={item.id} data={item} />
+        ))}
+      </div> */}
+      <HousesTable data={data} />
     </main>
   );
 };

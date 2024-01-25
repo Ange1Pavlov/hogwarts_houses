@@ -2,7 +2,7 @@ import React from 'react';
 
 const ListWrapper = ({ title, children }) => {
   return (
-    <div className='list-wrapper'>
+    <div className='py-2'>
       {title && <h3>{title}:</h3>}
       {children}
     </div>
