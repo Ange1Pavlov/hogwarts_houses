@@ -37,6 +37,7 @@ body {
 
 ul {
   list-style: none;
+  padding: 1rem;
 }
 
 img {
@@ -55,4 +56,13 @@ nav {
   margin: auto;
   overflow: hidden;
   padding: 1rem 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.list-wrapper {
+  padding: 1rem;
 }
