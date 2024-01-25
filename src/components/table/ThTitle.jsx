@@ -1,6 +1,6 @@
 import SortButton from '../SortButton';
 
-const Titles = ({ label, onClick }) => {
+const ThTitle = ({ label, onClick }) => {
   return (
     <th scope='col' className='px-6 py-3'>
       <div className='flex items-center'>
@@ -11,4 +11,4 @@ const Titles = ({ label, onClick }) => {
   );
 };
 
-export default Titles;
+export default ThTitle;

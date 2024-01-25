@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import HouseCard from './houses/HouseCard';
 import { houses } from '../fakeData/res';
 import Loader from './Loader';
+
+import HouseCard from './houses/HouseCard';
 import HousesTable from './table/HousesTable';
+import RegisterHouse from './register/RegisterHouse';
+
+import axios from 'axios';
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -43,6 +46,7 @@ const Home = () => {
         ))}
       </div> */}
       <HousesTable data={data} />
+      <RegisterHouse />
     </main>
   );
 };
