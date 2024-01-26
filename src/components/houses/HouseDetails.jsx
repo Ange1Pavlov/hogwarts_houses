@@ -10,14 +10,14 @@ const HouseDetails = ({
       <h2>
         <strong>{name}</strong>
       </h2>
-      <ul>
+      {/* <ul>
         <ListItem label='Animal' value={animal} />
         <ListItem label='Element' value={element} />
         <ListItem label='Founder' value={founder} />
         <ListItem label='Ghost' value={ghost} />
         <ListItem label='House Colours' value={houseColours} />
         <ListItem label='Common Room' value={commonRoom} />
-      </ul>
+      </ul> */}
     </ListWrapper>
   );
 };

@@ -10,6 +10,8 @@ import axios from 'axios';
 
 const Home = () => {
   const [data, setData] = useState(null);
+  const [formData, setFormData] = useState(null);
+
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -38,15 +40,19 @@ const Home = () => {
     return <Loader />;
   }
 
+  const handleUpdateTable = (data) => {
+    setFormData(data);
+  };
+
   return (
     <main className='container'>
-      {/* <div className='mx-auto grid grid-cols-2 md:grid-cols-4'>
+      <div className='mx-auto grid grid-cols-2 md:grid-cols-4'>
         {data.map((item) => (
           <HouseCard key={item.id} data={item} />
         ))}
-      </div> */}
-      <HousesTable data={data} />
-      <RegisterHouse />
+      </div>
+      <HousesTable data={data} formData={formData} />
+      <RegisterHouse updateTable={handleUpdateTable} />
     </main>
   );
 };

@@ -1,18 +1,38 @@
 import { useState, useEffect } from 'react';
 import ThTitle from './ThTitle';
-import FilterTable from './FilterTable';
+import FilterInput from './FilterInput';
 
-const HousesTable = ({ data }) => {
-  const [tableData, setTableData] = useState(data);
+const HousesTable = ({ data, formData }) => {
+  const [fetchedData, setFetchedData] = useState([]);
+  const [newData, setNewData] = useState([]);
+
   const [sort, setSort] = useState(true);
   const [searchValue, setSearchValue] = useState('');
 
+  useEffect(() => {
+    const essentialData = data.map(({ name, animal, ghost, commonRoom }) => ({
+      name,
+      animal,
+      ghost,
+      commonRoom,
+    }));
+
+    setFetchedData(essentialData);
+    setNewData(essentialData);
+  }, [data]);
+
+  useEffect(() => {
+    if (formData) {
+      setFetchedData((prevState) => [...prevState, formData]);
+      setNewData((prevState) => [...prevState, formData]);
+    }
+  }, [formData]);
+
   const sortTableData = () => {
-    const sortedTableData = [...data].sort((a, b) =>
+    const sortedTableData = [...newData].sort((a, b) =>
       sort ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
     );
-
-    setTableData(sortedTableData);
+    setNewData(sortedTableData);
   };
 
   const handleClick = () => {
@@ -23,43 +43,48 @@ const HousesTable = ({ data }) => {
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);
+    filterData(e.target.value);
   };
 
-  const handleFilter = (value) => {
-    const filteredData = data.filter((house) =>
+  const filterData = (value) => {
+    const newFilteredData = fetchedData.filter((house) =>
       house.animal.toLowerCase().includes(value.toLowerCase())
     );
-    setTableData(filteredData);
+    setNewData(newFilteredData);
   };
 
   return (
-    <div className=' my-5 '>
-      <FilterTable
+    <div className='my-5'>
+      <FilterInput
         searchValue={searchValue}
         onChange={handleChange}
-        onFilter={handleFilter}
+        onFilter={filterData}
       />
       <table className='w-full text-sm text-left text-white rounded-b-xl overflow-hidden'>
         <thead className='uppercase bg-main text-white'>
-          {/* Wanted to do it with Object.keys(data[0]).map but there is no point.
-        Even if i filter out the unnecessarily data, upon update of the API more parameters may appear.
-        If I filter only the needed data it's the same as using it hardcoded */}
           <tr>
-            <ThTitle label='Name' onClick={handleClick} />
-            <ThTitle label='Animal' />
-            <ThTitle label='Ghost' />
-            <ThTitle label='Common Room' />
+            {newData[0] &&
+              Object.keys(newData[0]).map((label, index) => {
+                return (
+                  <ThTitle
+                    key={index}
+                    label={label}
+                    onClick={label === 'name' && handleClick}
+                  />
+                );
+              })}
           </tr>
         </thead>
         <tbody>
-          {tableData.map((house) => (
-            <tr key={house.id} className='bg-white border-b text-main'>
-              <td className='px-6 py-4'>{house.name}</td>
-              <td className='px-6 py-4'>{house.animal}</td>
-              <td className='px-6 py-4'>{house.ghost}</td>
-              <td className='px-6 py-4'>{house.commonRoom}</td>
-            </tr>
-          ))}
+          {newData &&
+            newData.map((house, index) => (
+              <tr key={index} className='bg-white border-b text-main'>
+                <td className='px-6 py-4'>{house.name}</td>
+                <td className='px-6 py-4'>{house.animal}</td>
+                <td className='px-6 py-4'>{house.ghost}</td>
+                <td className='px-6 py-4'>{house.commonRoom}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

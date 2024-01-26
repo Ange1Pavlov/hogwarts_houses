@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
-const FilterTable = ({ searchValue, onChange, onFilter }) => {
+const FilterInput = ({ searchValue, onChange, onFilter }) => {
   useEffect(() => {
     onFilter(searchValue);
   }, [searchValue]);
@@ -16,4 +16,4 @@ const FilterTable = ({ searchValue, onChange, onFilter }) => {
   );
 };
 
-export default FilterTable;
+export default FilterInput;
