@@ -45,7 +45,7 @@ const Home = () => {
   };
 
   return (
-    <main className='container'>
+    <main className='container my-5'>
       <div className='mx-auto grid grid-cols-2 md:grid-cols-4'>
         {data.map((item) => (
           <HouseCard key={item.id} data={item} />

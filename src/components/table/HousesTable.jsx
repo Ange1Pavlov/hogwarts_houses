@@ -54,7 +54,7 @@ const HousesTable = ({ data, formData }) => {
   };
 
   return (
-    <div className='my-5'>
+    <div className='my-5 overflow-x-auto'>
       <FilterInput
         searchValue={searchValue}
         onChange={handleChange}
@@ -79,10 +79,10 @@ const HousesTable = ({ data, formData }) => {
           {newData &&
             newData.map((house, index) => (
               <tr key={index} className='bg-white border-b text-main'>
-                <td className='px-6 py-4'>{house.name}</td>
-                <td className='px-6 py-4'>{house.animal}</td>
-                <td className='px-6 py-4'>{house.ghost}</td>
-                <td className='px-6 py-4'>{house.commonRoom}</td>
+                <td className='px-6 py-2 md:py-4'>{house.name}</td>
+                <td className='px-6 py-2 md:py-4'>{house.animal}</td>
+                <td className='px-6 py-2 md:py-4'>{house.ghost}</td>
+                <td className='px-6 py-2 md:py-4'>{house.commonRoom}</td>
               </tr>
             ))}
         </tbody>

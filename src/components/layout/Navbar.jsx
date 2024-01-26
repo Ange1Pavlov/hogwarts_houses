@@ -1,7 +1,13 @@
+import NavLink from './NavLink';
+
 const Navbar = ({ title }) => {
   return (
-    <nav>
-      <h1 className='text-3xl font-bold'>{title}</h1>
+    <nav className='flex items-center'>
+      <h1 className='text-h4 md:text-h2 font-bold'>{title}</h1>
+      <ul className='flex items-center'>
+        <NavLink url='/' title='Home' />
+        <NavLink url='/contact' title='Contact' />
+      </ul>
     </nav>
   );
 };
