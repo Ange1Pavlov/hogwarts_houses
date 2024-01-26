@@ -8,7 +8,7 @@ const FilterInput = ({ searchValue, onChange, onFilter }) => {
   return (
     <input
       type='text'
-      placeholder='Search by house animals'
+      placeholder='Search by house animal'
       value={searchValue}
       onChange={onChange}
       className='rounded-t-xl overflow-hidden w-full p-2'

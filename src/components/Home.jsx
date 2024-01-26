@@ -15,19 +15,19 @@ const Home = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setData(houses);
-    // axios
-    //   .get(`${process.env.REACT_APP_API_BASE_URL}/Houses`)
-    //   .then((res) => {
-    //     const sortedData = res.data.sort((a, b) =>
-    //       a.name.localeCompare(b.name)
-    //     );
-    //     setData(sortedData);
-    //   })
-    //   .catch((error) => {
-    //     console.log(`Error: ${error}`);
-    //     setError(error);
-    //   });
+    //setData(houses);
+    axios
+      .get(`${process.env.REACT_APP_API_BASE_URL}/Houses`)
+      .then((res) => {
+        const sortedData = res.data.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+        setData(sortedData);
+      })
+      .catch((error) => {
+        console.log(`Error: ${error}`);
+        setError(error);
+      });
   }, []);
 
   if (error) {
@@ -47,9 +47,9 @@ const Home = () => {
   return (
     <main className='container my-5'>
       <div className='mx-auto grid grid-cols-2 md:grid-cols-4'>
-        {data.map((item) => (
+        {/* {data.map((item) => (
           <HouseCard key={item.id} data={item} />
-        ))}
+        ))} */}
       </div>
       <HousesTable data={data} formData={formData} />
       <RegisterHouse updateTable={handleUpdateTable} />

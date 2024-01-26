@@ -42,6 +42,7 @@ const RegisterForm = ({ updateTable, handleClose }) => {
       return;
     }
 
+    // WIP: May use global stage and not pass data around the components
     updateTable(formData);
     handleClose();
     setSubmitting(false);
