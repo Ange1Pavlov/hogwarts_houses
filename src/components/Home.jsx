@@ -19,7 +19,11 @@ const Home = ({ data, error }) => {
   }
 
   if (!data && !error) {
-    return <Loader />;
+    return (
+      <div className='flex w-full py-64 justify-center items-center'>
+        <Loader />
+      </div>
+    );
   }
 
   return (
