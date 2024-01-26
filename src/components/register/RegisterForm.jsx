@@ -3,6 +3,7 @@ import InputField from './InputField';
 import SelectField from './SelectField';
 import FormValidator from './FormValidator';
 import Loader from '../Loader';
+import Button from '../Button';
 
 const RegisterForm = ({ updateTable, handleClose }) => {
   const [formData, setFormData] = useState({
@@ -86,13 +87,7 @@ const RegisterForm = ({ updateTable, handleClose }) => {
             {submitting ? (
               <Loader size={25} />
             ) : (
-              <button
-                type='button'
-                onClick={handleSubmit}
-                className='text-md font-700 text-white bg-blue-500 hover:bg-blue-700 rounded-xl px-10 py-2'
-              >
-                Submit
-              </button>
+              <Button onClick={handleSubmit} label='Submit' />
             )}
           </div>
         </div>

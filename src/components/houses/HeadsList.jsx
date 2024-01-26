@@ -5,9 +5,7 @@ const HeadsList = ({ title, data }) => {
     <ListWrapper title={title}>
       {data.map((item) => (
         <div key={item.id}>
-          <strong>
-            {item.firstName} {item.lastName}
-          </strong>
+          {item.firstName} {item.lastName}
         </div>
       ))}
     </ListWrapper>

@@ -5,9 +5,7 @@ const TraitCard = ({ title, data }) => {
     <ListWrapper title={title}>
       <ul>
         {data.map((item) => (
-          <li key={item.id}>
-            <strong>{item.name}</strong>
-          </li>
+          <li key={item.id}>{item.name}</li>
         ))}
       </ul>
     </ListWrapper>
