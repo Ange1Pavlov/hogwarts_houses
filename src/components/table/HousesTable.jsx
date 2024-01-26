@@ -78,7 +78,10 @@ const HousesTable = ({ data, formData }) => {
         <tbody>
           {newData &&
             newData.map((house, index) => (
-              <tr key={index} className='bg-white border-b text-main'>
+              <tr
+                key={index}
+                className='bg-white border-b text-main capitalize'
+              >
                 <td className='px-2 sm:px-4 md:px-6 py-2 md:py-4'>
                   <strong className='text-[1.1rem] md:text-n'>
                     <span className='md:hidden'>House name: </span>

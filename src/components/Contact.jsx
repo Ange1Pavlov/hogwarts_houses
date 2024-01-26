@@ -11,7 +11,7 @@ const Contact = ({ data }) => (
           className='rounded-xl'
         />
       </div>
-      <div className='md:flex-1 w-full md:w-40'>
+      <div className='md:flex-1 w-full md:w-40 font-600'>
         <p className='italic p-6'>
           Cornelius Oswald Fudge,
           <br />

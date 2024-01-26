@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('Fonts.css');
 
 :root {
   --dark-color: #161616;
@@ -49,4 +50,10 @@ nav {
   color: var(--light-color);
   width: 100%;
   padding: 1rem;
+}
+
+.dancing-font {
+  font-family: 'DancingScriptBold', cursive, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
 }

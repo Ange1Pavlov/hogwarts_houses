@@ -5,7 +5,7 @@ const FormValidator = ({ formData }) => {
     if (!formData.name) {
       errors.name = 'The field is required!';
     } else if (/^(.{0,4}|.{21,})$/.test(formData.name)) {
-      errors.name = 'Enter a name between 5 and 20 symbosl.';
+      errors.name = 'Enter a name between 5 and 20 symbols.';
     }
 
     if (!formData.animal) {

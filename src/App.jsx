@@ -32,6 +32,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+          {/* WIP Data is not kept between the contact and home page, if the data is in a global state this will be fixed */}
           <Route path='/' element={<Home data={data} error={error} />} />
           <Route
             path='/contact'
